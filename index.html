@@ -1,17 +1,93 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Love Page</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Làm Quen</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+
+    #imageContainer {
+      margin-top: 40px;
+      display: none;
+    }
+
+    #imageContainer img {
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Hiển thị 100 trái tim -->
-        <div class="heart">❤️</div>
-        <div class="heart">❤️</div>
-        <div class="heart">❤️</div>
-        <!-- ... (sao chép thêm dòng trên tùy ý) -->
-    </div>
+
+  <h1>Xin chào, tôi muốn làm quen với bạn.</h1>
+
+  <div class="buttons">
+    <button id="yesBtn">OK</button>
+    <button id="noBtn">Không</button>
+  </div>
+
+  <div id="imageContainer">
+    <img src="https://i.imgur.com/9Y3ZfRQ.jpeg" alt="Ảnh bạn mong muốn">
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const imageContainer = document.getElementById("imageContainer");
+
+    let scale = 1;
+
+    noBtn.addEventListener("click", () => {
+      scale -= 0.1;
+      if (scale <= 0) {
+        noBtn.style.display = "none";
+      } else {
+        noBtn.style.transform = `scale(${scale})`;
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      imageContainer.style.display = "block";
+    });
+  </script>
+
 </body>
 </html>
